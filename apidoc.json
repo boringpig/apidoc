@@ -1,0 +1,8 @@
+{
+  "name": "KIOSK後台",
+  "description": "提供給前台串接的API文件",
+  "title": "KIOSK後台",
+  "header": {
+    "filename": "layouts/header.md"
+  }
+}
