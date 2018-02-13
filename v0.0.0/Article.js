@@ -7,12 +7,12 @@
  * @apiHeader {String=application/json}     Accept         指定接收格式為Json，只允許此Accept
  * @apiHeader {String="Bearer token"}      Authorization   系統發行的Token
  *
- * @apiParam {Numeric} type          標題類型
- * @apiParam {String}  language      文章語系
- * @apiParam {Numeric} s_city        播放地區
+ * @apiParam {Numeric=1、2...}             [type]          標題類型，範例：1小提醒，2公告
+ * @apiParam {String=en、zh-CN、zh-TW}     [language]      文章語系，en=英文，zh-CN=簡體中文，zh-TW=繁體中文
+ * @apiParam {Numeric=0101、0102...}      [s_city]        播放地區，範例：0101福建省泉州市、0102福建省安徽市
  * 
  * @apiSuccess {Boolean}        RetCode                               狀態碼
- * @apiSuccess {Object}         RetVal                                回傳陣列
+ * @apiSuccess {Array}          RetVal                                回傳陣列
  * @apiSuccess {String}         RetVal.title                          文章標題
  * @apiSuccess {String}         RetVal.content                        文章內容
  * @apiSuccess {Array}          RetVal.broadcast_area                 播放地區
@@ -36,4 +36,25 @@
  *             }
  *          ]
  *     }
+ * 
+ * @apiError Request-must-be-json   Header 未加上Accept: application/json
+ * @apiError Token-not-provided     授权失败，缺少token栏位
+ * @apiError Invalid-Token          授权失败，无效的token
+ *
+ * @apiErrorExample Request-must-be-json:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "请求必须為JSON"
+ *     }
+ * @apiErrorExample Token-not-provided:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，缺少token栏位"
+ *     }
+ * @apiErrorExample Invalid-Token:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，无效的token"
+ *     }
+ * 
  */

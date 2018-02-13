@@ -8,7 +8,7 @@
  * @apiHeader {String="Bearer token"}      Authorization   系統發行的Token
  *
  * @apiSuccess {Boolean}        RetCode                               狀態碼
- * @apiSuccess {Object}         RetVal                                回傳陣列
+ * @apiSuccess {Array}          RetVal                                回傳陣列
  * @apiSuccess {String}         RetVal.customer_service_phone         客服聯絡手機
  * @apiSuccess {String}         RetVal.customer_service_email         客服聯絡信箱
  *
@@ -19,9 +19,30 @@
  *             {
  *                 "customer_service_phone": "23692699",
  *                 "customer_service_email": "microprogram@program.com.tw"
-*              }
+ *             }
  *          ]
  *     }
+ * 
+ * @apiError Request-must-be-json   Header 未加上Accept: application/json
+ * @apiError Token-not-provided     授权失败，缺少token栏位
+ * @apiError Invalid-Token          授权失败，无效的token
+ *
+ * @apiErrorExample Request-must-be-json:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "请求必须為JSON"
+ *     }
+ * @apiErrorExample Token-not-provided:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，缺少token栏位"
+ *     }
+ * @apiErrorExample Invalid-Token:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，无效的token"
+ *     }
+ * 
  */
 
  /**
@@ -34,7 +55,7 @@
  * @apiHeader {String="Bearer token"}      Authorization   系統發行的Token
  *
  * @apiSuccess {Boolean}        RetCode                               狀態碼
- * @apiSuccess {Object}         RetVal                                回傳陣列
+ * @apiSuccess {Array}          RetVal                                回傳陣列
  * @apiSuccess {String}         RetVal.kiosk_freetime                 閒置時間
  *
  * @apiSuccessExample Success-Response:
@@ -46,4 +67,25 @@
  *             }
  *          ]
  *     }
+ * 
+ * @apiError Request-must-be-json   Header 未加上Accept: application/json
+ * @apiError Token-not-provided     授权失败，缺少token栏位
+ * @apiError Invalid-Token          授权失败，无效的token
+ *
+ * @apiErrorExample Request-must-be-json:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "请求必须為JSON"
+ *     }
+ * @apiErrorExample Token-not-provided:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，缺少token栏位"
+ *     }
+ * @apiErrorExample Invalid-Token:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，无效的token"
+ *     }
+ * 
  */

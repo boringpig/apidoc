@@ -7,10 +7,10 @@
  * @apiHeader {String=application/json}     Accept         指定接收格式為Json，只允許此Accept
  * @apiHeader {String="Bearer token"}      Authorization   系統發行的Token
  *
- * @apiParam {Numeric}  s_city      播放地區
+ * @apiParam {Numeric=0101,0102}  [s_city]      播放地區，範例：0101福建省泉州市、0102福建省安徽市
  * 
  * @apiSuccess {Boolean}        RetCode                               狀態碼
- * @apiSuccess {Object}         RetVal                                回傳陣列
+ * @apiSuccess {Array}          RetVal                                回傳陣列
  * @apiSuccess {String}         RetVal.name                           廣告名稱
  * @apiSuccess {String}         RetVal.path                           圖片路徑
  * @apiSuccess {String}         RetVal.round_time                     循環秒數
@@ -34,4 +34,25 @@
  *             }
  *          ]
  *     }
+ * 
+ * @apiError Request-must-be-json   Header 未加上Accept: application/json
+ * @apiError Token-not-provided     授权失败，缺少token栏位
+ * @apiError Invalid-Token          授权失败，无效的token
+ *
+ * @apiErrorExample Request-must-be-json:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "请求必须為JSON"
+ *     }
+ * @apiErrorExample Token-not-provided:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，缺少token栏位"
+ *     }
+ * @apiErrorExample Invalid-Token:
+ *     {
+ *         "RetCode": 0,
+ *         "RetMsg": "授权失败，无效的token"
+ *     } 
+ * 
  */
