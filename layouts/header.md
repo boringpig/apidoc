@@ -39,6 +39,6 @@ tr:nth-child(even) {
 }
 ```
 錯誤種類如下:
-- token 的格式錯誤 
-- 在需要提供token 的請求上尚未提供token
-- Header 未加上Accept: application/json
+- 请求必须為JSON 
+- 授权失败，缺少token栏位
+- 授权失败，无效的token
